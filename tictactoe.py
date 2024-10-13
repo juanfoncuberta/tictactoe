@@ -34,7 +34,7 @@ def player(board):
       return 'X'
     else:
       return 'O'
-      
+
     raise NotImplementedError
 
 
@@ -42,6 +42,13 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
+    freeSquares = set()
+    for i in range(len(board)):
+      for j in range(len(board[i])):
+        if board[i][j] is None:
+          freeSquares.add((i,j))
+          
+    return freeSquares
     raise NotImplementedError
 
 
