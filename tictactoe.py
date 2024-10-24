@@ -8,6 +8,16 @@ import copy
 X = "X"
 O = "O"
 EMPTY = None
+winnerMoves = [
+      [(0,0),(0,1),(0,2)],
+      [(1,0),(1,1),(1,2)],
+      [(2,0),(2,1),(2,2)],
+      [(0,0),(1,1),(2,2)],
+      [(0,2),(1,1),(2,0)],
+      [(0,0),(1,0),(2,0)],
+      [(0,1),(1,1),(2,1)],
+      [(0,2),(1,2),(2,2)]
+    ]
 
 
 def initial_state():
@@ -71,6 +81,12 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
+
+    for row in winnerMoves:
+      if board[row[0][0]][row[0][1]] == board[row[1][0]][row[1][1]] == board[row[2][0]][row[2][1]] and board[row[0][0]][row[0][1]] is not None:
+        return board[row[0][0]][row[0][1]]
+
+    return None
     raise NotImplementedError
 
 
