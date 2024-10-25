@@ -91,12 +91,10 @@ def winner(board):
 
 
 def terminal(board):
-
-    return winner(board) is not None
-
     """
     Returns True if game is over, False otherwise.
     """
+    return winner(board) is not None
     raise NotImplementedError
 
 
@@ -104,6 +102,13 @@ def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
+    hasWinner = winner(board)
+    if hasWinner == X:
+      return 1
+    elif hasWinner == O:
+      return -1
+    else: 
+      return 0
     raise NotImplementedError
 
 
